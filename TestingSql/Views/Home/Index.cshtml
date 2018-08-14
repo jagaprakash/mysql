@@ -1,0 +1,53 @@
+﻿@*@model TestingSql.Models.CityModel
+    @{
+        Layout = null;
+    }
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Index</title>
+
+        </head>
+        <body>
+            <div>
+                <p>Name: @Model.Name</p>
+                <p>Country Code: @Model.CountryCode</p>
+                <p>City: @Model.District</p>
+            </div>
+
+        </body>
+
+    </html>*@
+@using TestingSql.Models
+@model IEnumerable<City>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th>Customer Id</th>
+            <th>Contact Name</th>
+            <th>Country</th>
+        </tr>
+        @foreach (City customer in Model)
+        {
+            <tr>
+                @*<td>@customer.CustomerId</td>*@
+                <td>@customer.Name</td>
+                <td>@customer.District</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
