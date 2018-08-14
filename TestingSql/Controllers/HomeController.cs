@@ -20,7 +20,7 @@ namespace TestingSql.Controllers
             string constr = ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             using (MySqlConnection con = new MySqlConnection(constr))
             {
-                string query = "SELECT Name, District FROM city";
+                string query = "SELECT Name, CountryCode, District FROM city";
                 using (MySqlCommand cmd = new MySqlCommand(query))
                 {
                     cmd.Connection = con;
@@ -33,6 +33,7 @@ namespace TestingSql.Controllers
                             {
                                 //CustomerId = Convert.ToInt32(sdr["CustomerId"]),
                                 Name = sdr["Name"].ToString(),
+                                CountryCode = sdr["CountryCode"].ToString(),
                                 District = sdr["District"].ToString()
                             });
                         }
